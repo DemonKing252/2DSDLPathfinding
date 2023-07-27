@@ -1,0 +1,86 @@
+﻿  FSM.cpp
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(103,52): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(103,52): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(103,108): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(103,108): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(195,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Game.cpp
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\Game.cpp(125,4): warning C4060: switch statement contains no 'case' or 'default' labels
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_sdl2.cpp
+  imgui_impl_sdlrenderer2.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  main.cpp
+  Node.cpp
+  Sprite.cpp
+  Generating Code...
+FSM.obj : error LNK2019: unresolved external symbol SDL_FreeSurface referenced in function "public: virtual void __cdecl GameState::Enter(void)" (?Enter@GameState@@UEAAXXZ)
+FSM.obj : error LNK2019: unresolved external symbol SDL_CreateTextureFromSurface referenced in function "public: virtual void __cdecl GameState::Enter(void)" (?Enter@GameState@@UEAAXXZ)
+FSM.obj : error LNK2019: unresolved external symbol SDL_SetTextureColorMod referenced in function "public: virtual void __cdecl GameState::Render(void)" (?Render@GameState@@UEAAXXZ)
+FSM.obj : error LNK2019: unresolved external symbol SDL_SetRenderDrawColor referenced in function "public: virtual void __cdecl GameState::Render(void)" (?Render@GameState@@UEAAXXZ)
+Game.obj : error LNK2001: unresolved external symbol SDL_SetRenderDrawColor
+FSM.obj : error LNK2019: unresolved external symbol SDL_RenderDrawLine referenced in function "public: virtual void __cdecl GameState::Render(void)" (?Render@GameState@@UEAAXXZ)
+FSM.obj : error LNK2019: unresolved external symbol SDL_RenderDrawRect referenced in function "public: virtual void __cdecl GameState::Render(void)" (?Render@GameState@@UEAAXXZ)
+FSM.obj : error LNK2019: unresolved external symbol SDL_RenderCopy referenced in function "public: virtual void __cdecl GameState::Render(void)" (?Render@GameState@@UEAAXXZ)
+FSM.obj : error LNK2019: unresolved external symbol SDL_DestroyTexture referenced in function "public: virtual void __cdecl GameState::Render(void)" (?Render@GameState@@UEAAXXZ)
+imgui_impl_sdlrenderer2.obj : error LNK2001: unresolved external symbol SDL_DestroyTexture
+FSM.obj : error LNK2019: unresolved external symbol IMG_Load referenced in function "public: virtual void __cdecl GameState::Enter(void)" (?Enter@GameState@@UEAAXXZ)
+FSM.obj : error LNK2019: unresolved external symbol TTF_OpenFont referenced in function "public: virtual void __cdecl GameState::Enter(void)" (?Enter@GameState@@UEAAXXZ)
+FSM.obj : error LNK2019: unresolved external symbol TTF_RenderText_Blended referenced in function "public: virtual void __cdecl GameState::Render(void)" (?Render@GameState@@UEAAXXZ)
+Game.obj : error LNK2019: unresolved external symbol SDL_CreateWindow referenced in function "private: bool __cdecl Game::Init_SDL(char const *,int,int)" (?Init_SDL@Game@@AEAA_NPEBDHH@Z)
+Game.obj : error LNK2019: unresolved external symbol SDL_DestroyWindow referenced in function "private: void __cdecl Game::Clean(void)" (?Clean@Game@@AEAAXXZ)
+Game.obj : error LNK2019: unresolved external symbol SDL_PollEvent referenced in function "private: void __cdecl Game::PollEvents(void)" (?PollEvents@Game@@AEAAXXZ)
+Game.obj : error LNK2019: unresolved external symbol SDL_SetHint referenced in function "private: bool __cdecl Game::Init_SDL(char const *,int,int)" (?Init_SDL@Game@@AEAA_NPEBDHH@Z)
+imgui_impl_sdl2.obj : error LNK2001: unresolved external symbol SDL_SetHint
+Game.obj : error LNK2019: unresolved external symbol SDL_CreateRenderer referenced in function "private: bool __cdecl Game::Init_SDL(char const *,int,int)" (?Init_SDL@Game@@AEAA_NPEBDHH@Z)
+Game.obj : error LNK2019: unresolved external symbol SDL_RenderClear referenced in function "private: void __cdecl Game::Render(void)" (?Render@Game@@AEAAXXZ)
+Game.obj : error LNK2019: unresolved external symbol SDL_RenderPresent referenced in function "private: void __cdecl Game::Render(void)" (?Render@Game@@AEAAXXZ)
+Game.obj : error LNK2019: unresolved external symbol SDL_Init referenced in function "private: bool __cdecl Game::Init_SDL(char const *,int,int)" (?Init_SDL@Game@@AEAA_NPEBDHH@Z)
+Game.obj : error LNK2019: unresolved external symbol SDL_Quit referenced in function "private: void __cdecl Game::Clean(void)" (?Clean@Game@@AEAAXXZ)
+Game.obj : error LNK2019: unresolved external symbol IMG_Init referenced in function "private: bool __cdecl Game::Init_SDL(char const *,int,int)" (?Init_SDL@Game@@AEAA_NPEBDHH@Z)
+Game.obj : error LNK2019: unresolved external symbol TTF_Init referenced in function "private: bool __cdecl Game::Init_SDL(char const *,int,int)" (?Init_SDL@Game@@AEAA_NPEBDHH@Z)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_free referenced in function "char const * __cdecl ImGui_ImplSDL2_GetClipboardText(void *)" (?ImGui_ImplSDL2_GetClipboardText@@YAPEBDPEAX@Z)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_SetClipboardText referenced in function "void __cdecl ImGui_ImplSDL2_SetClipboardText(void *,char const *)" (?ImGui_ImplSDL2_SetClipboardText@@YAXPEAXPEBD@Z)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GetClipboardText referenced in function "char const * __cdecl ImGui_ImplSDL2_GetClipboardText(void *)" (?ImGui_ImplSDL2_GetClipboardText@@YAPEBDPEAX@Z)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GetCurrentVideoDriver referenced in function "bool __cdecl ImGui_ImplSDL2_Init(struct SDL_Window *,struct SDL_Renderer *)" (?ImGui_ImplSDL2_Init@@YA_NPEAUSDL_Window@@PEAUSDL_Renderer@@@Z)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GetWindowFlags referenced in function "void __cdecl ImGui_ImplSDL2_NewFrame(void)" (?ImGui_ImplSDL2_NewFrame@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GetWindowPosition referenced in function "void __cdecl ImGui_ImplSDL2_UpdateMouseData(void)" (?ImGui_ImplSDL2_UpdateMouseData@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GetWindowSize referenced in function "void __cdecl ImGui_ImplSDL2_NewFrame(void)" (?ImGui_ImplSDL2_NewFrame@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GL_GetDrawableSize referenced in function "void __cdecl ImGui_ImplSDL2_NewFrame(void)" (?ImGui_ImplSDL2_NewFrame@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GetKeyboardFocus referenced in function "void __cdecl ImGui_ImplSDL2_UpdateMouseData(void)" (?ImGui_ImplSDL2_UpdateMouseData@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_SetTextInputRect referenced in function "void __cdecl ImGui_ImplSDL2_SetPlatformImeData(struct ImGuiViewport *,struct ImGuiPlatformImeData *)" (?ImGui_ImplSDL2_SetPlatformImeData@@YAXPEAUImGuiViewport@@PEAUImGuiPlatformImeData@@@Z)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GetGlobalMouseState referenced in function "void __cdecl ImGui_ImplSDL2_UpdateMouseData(void)" (?ImGui_ImplSDL2_UpdateMouseData@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_WarpMouseInWindow referenced in function "void __cdecl ImGui_ImplSDL2_UpdateMouseData(void)" (?ImGui_ImplSDL2_UpdateMouseData@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_CaptureMouse referenced in function "void __cdecl ImGui_ImplSDL2_UpdateMouseData(void)" (?ImGui_ImplSDL2_UpdateMouseData@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_CreateSystemCursor referenced in function "bool __cdecl ImGui_ImplSDL2_Init(struct SDL_Window *,struct SDL_Renderer *)" (?ImGui_ImplSDL2_Init@@YA_NPEAUSDL_Window@@PEAUSDL_Renderer@@@Z)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_SetCursor referenced in function "void __cdecl ImGui_ImplSDL2_UpdateMouseCursor(void)" (?ImGui_ImplSDL2_UpdateMouseCursor@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_FreeCursor referenced in function "void __cdecl ImGui_ImplSDL2_Shutdown(void)" (?ImGui_ImplSDL2_Shutdown@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_ShowCursor referenced in function "void __cdecl ImGui_ImplSDL2_UpdateMouseCursor(void)" (?ImGui_ImplSDL2_UpdateMouseCursor@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GameControllerOpen referenced in function "void __cdecl ImGui_ImplSDL2_UpdateGamepads(void)" (?ImGui_ImplSDL2_UpdateGamepads@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GameControllerGetAxis referenced in function "void __cdecl ImGui_ImplSDL2_UpdateGamepads(void)" (?ImGui_ImplSDL2_UpdateGamepads@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GameControllerGetButton referenced in function "void __cdecl ImGui_ImplSDL2_UpdateGamepads(void)" (?ImGui_ImplSDL2_UpdateGamepads@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GetRendererOutputSize referenced in function "void __cdecl ImGui_ImplSDL2_NewFrame(void)" (?ImGui_ImplSDL2_NewFrame@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GetPerformanceCounter referenced in function "void __cdecl ImGui_ImplSDL2_NewFrame(void)" (?ImGui_ImplSDL2_NewFrame@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GetPerformanceFrequency referenced in function "void __cdecl ImGui_ImplSDL2_NewFrame(void)" (?ImGui_ImplSDL2_NewFrame@@YAXXZ)
+imgui_impl_sdl2.obj : error LNK2019: unresolved external symbol SDL_GetWindowWMInfo referenced in function "bool __cdecl ImGui_ImplSDL2_Init(struct SDL_Window *,struct SDL_Renderer *)" (?ImGui_ImplSDL2_Init@@YA_NPEAUSDL_Window@@PEAUSDL_Renderer@@@Z)
+imgui_impl_sdlrenderer2.obj : error LNK2019: unresolved external symbol SDL_Log referenced in function "bool __cdecl ImGui_ImplSDLRenderer2_CreateFontsTexture(void)" (?ImGui_ImplSDLRenderer2_CreateFontsTexture@@YA_NXZ)
+imgui_impl_sdlrenderer2.obj : error LNK2019: unresolved external symbol SDL_CreateTexture referenced in function "bool __cdecl ImGui_ImplSDLRenderer2_CreateFontsTexture(void)" (?ImGui_ImplSDLRenderer2_CreateFontsTexture@@YA_NXZ)
+imgui_impl_sdlrenderer2.obj : error LNK2019: unresolved external symbol SDL_SetTextureBlendMode referenced in function "bool __cdecl ImGui_ImplSDLRenderer2_CreateFontsTexture(void)" (?ImGui_ImplSDLRenderer2_CreateFontsTexture@@YA_NXZ)
+imgui_impl_sdlrenderer2.obj : error LNK2019: unresolved external symbol SDL_SetTextureScaleMode referenced in function "bool __cdecl ImGui_ImplSDLRenderer2_CreateFontsTexture(void)" (?ImGui_ImplSDLRenderer2_CreateFontsTexture@@YA_NXZ)
+imgui_impl_sdlrenderer2.obj : error LNK2019: unresolved external symbol SDL_UpdateTexture referenced in function "bool __cdecl ImGui_ImplSDLRenderer2_CreateFontsTexture(void)" (?ImGui_ImplSDLRenderer2_CreateFontsTexture@@YA_NXZ)
+imgui_impl_sdlrenderer2.obj : error LNK2019: unresolved external symbol SDL_RenderSetViewport referenced in function "void __cdecl ImGui_ImplSDLRenderer2_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplSDLRenderer2_RenderDrawData@@YAXPEAUImDrawData@@@Z)
+imgui_impl_sdlrenderer2.obj : error LNK2019: unresolved external symbol SDL_RenderGetViewport referenced in function "void __cdecl ImGui_ImplSDLRenderer2_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplSDLRenderer2_RenderDrawData@@YAXPEAUImDrawData@@@Z)
+imgui_impl_sdlrenderer2.obj : error LNK2019: unresolved external symbol SDL_RenderSetClipRect referenced in function "void __cdecl ImGui_ImplSDLRenderer2_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplSDLRenderer2_RenderDrawData@@YAXPEAUImDrawData@@@Z)
+imgui_impl_sdlrenderer2.obj : error LNK2019: unresolved external symbol SDL_RenderGetClipRect referenced in function "void __cdecl ImGui_ImplSDLRenderer2_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplSDLRenderer2_RenderDrawData@@YAXPEAUImDrawData@@@Z)
+imgui_impl_sdlrenderer2.obj : error LNK2019: unresolved external symbol SDL_RenderIsClipEnabled referenced in function "void __cdecl ImGui_ImplSDLRenderer2_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplSDLRenderer2_RenderDrawData@@YAXPEAUImDrawData@@@Z)
+imgui_impl_sdlrenderer2.obj : error LNK2019: unresolved external symbol SDL_RenderGetScale referenced in function "void __cdecl ImGui_ImplSDLRenderer2_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplSDLRenderer2_RenderDrawData@@YAXPEAUImDrawData@@@Z)
+imgui_impl_sdlrenderer2.obj : error LNK2019: unresolved external symbol SDL_RenderGeometryRaw referenced in function "void __cdecl ImGui_ImplSDLRenderer2_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplSDLRenderer2_RenderDrawData@@YAXPEAUImDrawData@@@Z)
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\SDL2-2.26.5\lib\x86\SDL2.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\SDL2_extras\lib\x86\SDL2_image.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\SDL2-2.26.5\lib\x86\SDL2main.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\SDL2_extras\lib\x86\SDL2_ttf.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\x64\Debug\2DSDLPathfinding.exe : fatal error LNK1120: 59 unresolved externals

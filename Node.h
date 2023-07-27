@@ -31,7 +31,7 @@ private:
 	bool m_visited = false;
 public:
 	tile_state m_tileState = tile_state::none;
-	Node* PreviousNode = nullptr;
+	Node* m_pPreviousNode = nullptr;
 
 	int m_x;
 	int m_y;

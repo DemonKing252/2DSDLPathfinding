@@ -38,9 +38,6 @@ void GameState::Enter()
 	destP[0] = 15;
 	destP[1] = 5;
 
-	//destP[0] = 9;
-	//destP[1] = 12;
-
 	Node* source = &m_pGraph[sourceP[0]][sourceP[1]];
 	Node* dest = &m_pGraph[destP[0]][destP[1]];
 
@@ -196,7 +193,7 @@ void GameState::Pathfind(Node* source, Node* dest)
 	auto add_to_list = [&](Node* node, Node* neighbour, std::vector<Node*>& nodes, std::vector<Node*>& visitedTiles) {
 		neighbour->m_tileState = tile_state::searched;
 		neighbour->m_iDist = node->m_iDist + neighbour->GetCost();
-		neighbour->PreviousNode = node;
+		neighbour->m_pPreviousNode = node;
 		neighbour->SetVisited(true);
 		nodes.push_back(neighbour);
 		visitedTiles.push_back(neighbour);
@@ -256,7 +253,7 @@ void GameState::Pathfind(Node* source, Node* dest)
 	while (currentNode != source)
 	{
 		currentNode->m_tileState = tile_state::path;
-		currentNode = currentNode->PreviousNode;
+		currentNode = currentNode->m_pPreviousNode;
 		path.push_back(currentNode);
 	}
 	source->SetColor(255, 0, 0);
@@ -265,29 +262,6 @@ void GameState::Pathfind(Node* source, Node* dest)
 	dest->SetColor(0, 0, 255);
 	dest->m_tileState = tile_state::dest;
 }
-
-//if (neighbour->GetNavigation() == navigation_type::open && !neighbour->IsVisited() && neighbour != dest)
-//{
-//	neighbour->m_tileState = tile_state::searched;
-//	neighbour->m_iDist = node->m_iDist + neighbour->GetCost();
-//	neighbour->PreviousNode = node;
-//	neighbour->SetVisited(true);
-//	nodesFront.push_back(neighbour);
-//	visitedTiles.push_back(neighbour);
-//	cout << "PATHFINDER: added: " << neighbour->GetName() << endl;
-//
-//}
-//else if (neighbour == dest)
-//{
-//	neighbour->m_tileState = tile_state::searched;
-//	neighbour->m_iDist = node->m_iDist + neighbour->GetCost();
-//	neighbour->PreviousNode = node;
-//	visitedTiles.push_back(neighbour);
-//	infoLog = "PATHFINDER:\nTarget found at: (" + to_string(neighbour->m_x) + "," + to_string(neighbour->m_y) + ")\nManhattan Distance: " + to_string(neighbour->m_iDist);
-//	cout << infoLog << endl;
-//	pathfound = true;
-//	break;
-//}
 
 void GameState::ImGui_Render()
 {
@@ -330,8 +304,6 @@ void GameState::ImGui_Render()
 	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
 	ImGui::End();
 
-
-	//cout << sourceP[0] << " " << sourceP[1] << endl;
 }
 
 FSM::FSM() :
