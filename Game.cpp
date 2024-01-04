@@ -31,14 +31,13 @@ bool Game::Run(const char* title, int width, int height)
 
 		while (m_bRunning)
 		{
-
+			SDL_Delay(16);
 			this->PollEvents();
 			this->Update();
 			this->Render();
 		}
 		this->Clean();
 	}
-
 	return true;
 }
 
@@ -48,19 +47,13 @@ bool Game::Init_SDL(const char* title, int width, int height)
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0)
 		return false;
 
-#ifdef SDL_HINT_IME_SHOW_UI
-	SDL_SetHint(SDL_HINT_IME_SHOW_UI, "1");
-#endif
-
 	m_pWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, 0);
-
 
 	if (m_pWindow == NULL)
 		return false;
 
 	m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
 	
-
 	if (m_pRenderer == NULL)
 		return false;
 
@@ -101,7 +94,6 @@ bool Game::Init_ImGui()
 void Game::PollEvents()
 {
 	SDL_Event event;
-
 	while (SDL_PollEvent(&event))
 	{
 		ImGui_ImplSDL2_ProcessEvent(&event);

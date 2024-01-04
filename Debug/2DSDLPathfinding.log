@@ -1,22 +1,9 @@
 ﻿  FSM.cpp
-C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(103,52): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(103,52): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(103,108): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(103,108): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(119,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(121,9): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(195,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Game.cpp
-C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\Game.cpp(125,4): warning C4060: switch statement contains no 'case' or 'default' labels
-  imgui.cpp
-  imgui_demo.cpp
-  imgui_draw.cpp
-  imgui_impl_sdl2.cpp
-  imgui_impl_sdlrenderer2.cpp
-  imgui_tables.cpp
-  imgui_widgets.cpp
-  main.cpp
-  Node.cpp
-  Sprite.cpp
-  Generating Code...
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(112,52): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(112,52): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(112,108): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(112,108): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(141,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(143,9): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Demon\source\repos\DijkstraPathfindingSDL\2DSDLPathfinding\FSM.cpp(217,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   2DSDLPathfinding.vcxproj -> C:\Users\Demon\source\repos\DijkstraPathfindingSDL\Debug\2DSDLPathfinding.exe

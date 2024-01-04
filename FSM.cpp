@@ -31,6 +31,12 @@ void GameState::Enter()
 	m_pRedXTex = SDL_CreateTextureFromSurface(TheGame::Instance()->GetRenderer(), tempSurface);
 	SDL_FreeSurface(tempSurface);
 
+	tempSurface = IMG_Load("clip-art-arrow-34.png");
+
+	if (!tempSurface)
+		cout << "error with image" << endl;
+	m_pArrowTex = SDL_CreateTextureFromSurface(TheGame::Instance()->GetRenderer(), tempSurface);
+
 	sourceP[0] = 15;
 	sourceP[1] = 3;
 
@@ -42,7 +48,7 @@ void GameState::Enter()
 	Node* dest = &m_pGraph[destP[0]][destP[1]];
 
 	this->SetupGrid();
-	this->Pathfind(source, dest);
+	this->Calculate_Shortest_Path(source, dest);
 }
 
 void GameState::Update()
@@ -62,7 +68,10 @@ void GameState::Render()
 			auto& node = m_pGraph[x][y];
 			SDL_Rect dstRect = { node.m_x *32, node.m_y *32, 32, 32 };
 			if (debugMode && node.m_tileState == tile_state::path)
+			{
+				
 				SDL_SetTextureColorMod(m_pGridTex, 255, 0, 255);
+			}
 			else if (debugMode && node.m_tileState == tile_state::searched)
 				SDL_SetTextureColorMod(m_pGridTex, 252, 179, 106);
 			else
@@ -109,9 +118,22 @@ void GameState::Render()
 				if (drawOutlines)
 				{
 					SDL_SetRenderDrawColor(TheGame::Instance()->GetRenderer(), 0, 255, 0, 255);
-					SDL_RenderDrawRect(TheGame::Instance()->GetRenderer(), &dstRect);
+					
+					float angle = 45.f;
+					if (node.m_y - node.m_pPreviousNode->m_y == 1 && node.m_x == node.m_pPreviousNode->m_x)
+						angle = 45.f;
+
+
+					// TODO: Fix this
+					SDL_RenderCopyEx(TheGame::Instance()->GetRenderer(), m_pArrowTex, NULL, &dstRect, angle, NULL, SDL_FLIP_NONE);
+
 				}
-			}			
+			}
+			if (node.m_tileState == tile_state::path)
+			{
+
+				SDL_RenderCopy(TheGame::Instance()->GetRenderer(), m_pArrowTex, NULL, &dstRect);
+			}
 		}
 	}
 
@@ -171,7 +193,7 @@ void GameState::SetupGrid()
 	}
 }
 
-void GameState::Pathfind(Node* source, Node* dest)
+void GameState::Calculate_Shortest_Path(Node* source, Node* dest)
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, 7);
@@ -185,10 +207,10 @@ void GameState::Pathfind(Node* source, Node* dest)
 		}
 	}
 	std::vector<Node*> visitedTiles;
-	std::vector<Node*> nodesFront;
-	std::vector<Node*> nodesBack;
+	std::vector<Node*> innerNeighbours;
+	std::vector<Node*> outerNeighbours;
 	source->SetVisited(true);
-	nodesFront.push_back(source);
+	innerNeighbours.push_back(source);
 
 	auto add_to_list = [&](Node* node, Node* neighbour, std::vector<Node*>& nodes, std::vector<Node*>& visitedTiles) {
 		neighbour->m_tileState = tile_state::searched;
@@ -202,50 +224,47 @@ void GameState::Pathfind(Node* source, Node* dest)
 	bool pathfound = false;
 	while (!pathfound)
 	{
-		nodesBack.clear();
-		for (auto& current : nodesFront)
+		outerNeighbours.clear();
+		for (auto& current : innerNeighbours)
 		{
 			for (auto& neighbour : current->GetNeighbours())
 			{
 				if (neighbour->GetNavigation() == navigation_type::open && !neighbour->IsVisited() && neighbour != dest)
 				{
-					add_to_list(current, neighbour, nodesBack, visitedTiles);
+					add_to_list(current, neighbour, outerNeighbours, visitedTiles);
 				}
 				else if (neighbour == dest)
 				{
-					add_to_list(current, neighbour, nodesBack, visitedTiles);
+					add_to_list(current, neighbour, outerNeighbours, visitedTiles);
 
 					infoLog = "PATHFINDER:\nTarget found at: (" + to_string(neighbour->m_x) + "," + to_string(neighbour->m_y) + ")\nManhattan Distance: " + to_string(neighbour->m_iDist);
 					pathfound = true;
-					break;
+					goto PathFound;
 				}
 			}
 		}
-		if (pathfound)
-			break;
-		nodesFront.clear();
-		for (auto& current : nodesBack)
+		innerNeighbours.clear();
+		for (auto& current : outerNeighbours)
 		{
 			for (auto& neighbour : current->GetNeighbours())
 			{				
 				if (neighbour->GetNavigation() == navigation_type::open && !neighbour->IsVisited() && neighbour != dest)
 				{
-					add_to_list(current, neighbour, nodesFront, visitedTiles);					
+					add_to_list(current, neighbour, innerNeighbours, visitedTiles);					
 				}
 				else if (neighbour == dest)
 				{
-					add_to_list(current, neighbour, nodesFront, visitedTiles);
+					add_to_list(current, neighbour, innerNeighbours, visitedTiles);
 
 					infoLog = "PATHFINDER:\nTarget found at: (" + to_string(neighbour->m_x) + "," + to_string(neighbour->m_y) + ")\nManhattan Distance: " + to_string(neighbour->m_iDist);
 					pathfound = true;
-					break;
+					goto PathFound;
 				}
 			}
 		}
-		if (pathfound)
-			break;
 	}
 
+PathFound:
 	path.clear();
 	Node* currentNode = dest;
 	currentNode->SetColor(255, 0, 255);
@@ -284,12 +303,13 @@ void GameState::ImGui_Render()
 			destP[0] < 0 || destP[0] > 31 || destP[1] < 0 || destP[1] > 23)
 		{
 			HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-			SetConsoleTextAttribute(hConsole, 12);
+			SetConsoleTextAttribute(hConsole, FOREGROUND_RED);
 
 			cout << "Source or Dest out coords out of bounds!" << endl;
 		}
 		else
-			this->Pathfind(source, dest);
+			this->Calculate_Shortest_Path(source, dest);
+
 	}
 	ImGui::Unindent();
 	ImGui::Separator();

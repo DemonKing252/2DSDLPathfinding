@@ -32,6 +32,7 @@ private:
 	Node m_pGraph[32][24];
 	SDL_Texture* m_pGridTex;
 	SDL_Texture* m_pRedXTex;
+	SDL_Texture* m_pArrowTex;
 
 	TTF_Font* arial14;
 	TTF_Font* arial11;
@@ -55,7 +56,7 @@ public:
 	void Exit() override;
 
 	void SetupGrid();
-	void Pathfind(Node* source, Node* dest);
+	void Calculate_Shortest_Path(Node* source, Node* dest);
 	void ImGui_Render();
 };
 

@@ -7,12 +7,12 @@
 #include <SDL_ttf.h>
 using namespace std;
 
-enum navigation_type
+enum class navigation_type
 {
 	open,
 	closed
 };
-enum tile_state
+enum class tile_state
 {
 	none,
 	source,
